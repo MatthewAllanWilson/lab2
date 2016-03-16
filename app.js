@@ -14,5 +14,14 @@ var fromSeattle = prompt('Did I grow up in Seattle?  Yes or no?');
 if (fromSeattle.toUpperCase() === 'YES') {
   alert('That is correct!  Although technically I grew up in Mill Creek, about 20 miles North of Seattle.');
 } else {
-  alert('Incorrect!  I grew up in Mill Creek, 20 miles North of Seattle.  And')
+  alert('Incorrect!  I grew up in Mill Creek, 20 miles North of downtown Seattle.  But I still say I grew up in Seattle!!');
 }
+console.log('User guesses if I grew up in Seattle or not.')
+
+var inLosAngeles = prompt('Did I live in Los Angeles?  Yes or no?');
+if (inLosAngeles.toUpperCase() === 'YES'){
+  alert ('You are right!  I lived there for 15 years.');
+} else {
+  alert('Nope!  I lived in the City of Angels for 15 years.');
+}
+console.log('User guesses if I lived in Los Angeles.');
