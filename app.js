@@ -9,11 +9,14 @@ console.log('User inputs their name.');
 alert('Okay, ' + userName + '! I\'m going to ask you some questions so you can get to know me.');
 console.log('Telling user what we will be doing.');
 
+var correctGuesses = 0;
+
 var fromSeattle = prompt('Did I grow up in Seattle?  Yes or no?');
 if (fromSeattle.toUpperCase() === 'YES' || fromSeattle.toUpperCase() === 'Y') {
   alert('That is correct!  Although technically I grew up in Mill Creek, about 20 miles North of Seattle.');
+  correctGuesses++;
 } else if (fromSeattle.toUpperCase() === 'NO' || fromSeattle.toUpperCase() === 'N') {
-  alert('Incorrect!  I grew up in Mill Creek, 20 miles North of downtown Seattle.  But I still say I grew up in Seattle!');
+  alert('Incorrect!  I grew up in Mill Creek, which is near Everett.  But I still say I grew up in Seattle!');
 } else {
   alert('Ambiguous answers receive ambiguous responses!');
 }
@@ -22,6 +25,7 @@ console.log('User guesses if I grew up in Seattle or not.');
 var inLosAngeles = prompt('Did I live in Los Angeles?  Yes or no?');
 if (inLosAngeles.toUpperCase() === 'YES' || inLosAngeles.toUpperCase() === 'Y') {
   alert ('You are right!  I lived there for 15 years.');
+  correctGuesses++;
 } else if (inLosAngeles.toUpperCase() === 'NO' || inLosAngeles.toUpperCase() === 'N') {
   alert('Nope!  I lived in the City of Angels for 15 years.');
 } else {
@@ -34,6 +38,7 @@ if (likesSushi.toUpperCase() === 'YES' || likesSushi.toUpperCase() === 'Y') {
   alert('Incorrect!  Even though everyone else in LA loved it, I never caught the Sushi craze.');
 } else if (likesSushi.toUpperCase() === 'NO' || likesSushi.toUpperCase() === 'N') {
   alert('That is right, ' + userName + '!  Even though I lived in the land of Sushi, I was never convinced.');
+  correctGuesses++;
 } else {
   alert('You have to say YES or NO!  My game, my rules!');
 }
@@ -42,6 +47,7 @@ console.log('User guesses if I like Sushi.');
 var playsPiano = prompt('Do I play piano?  Yes or no?');
 if (playsPiano.toUpperCase() === 'YES' || playsPiano.toUpperCase() === 'Y') {
   alert('Right you are, ' + userName + '! I started playing piano when I was 30.');
+  correctGuesses++;
 } else if (playsPiano.toUpperCase() === 'NO' || playsPiano.toUpperCase() === 'N') {
   alert('Incorrect!  I started playing piano when I turned 30.');
 } else {
@@ -63,7 +69,31 @@ if (likesGolf.toUpperCase () === 'YES' || likesGolf.toUpperCase() === 'Y') {
 
 } else if (likesGolf.toUpperCase() === 'NO' || likesGolf.toUpperCase() === 'N') {
   alert('You are right!  I am not a golf guy.');
+  correctGuesses++;
 } else {
   alert('At this point of the game there is no excuse for not saying YES or NO!');
 }
 console.log('User guesses if I play golf.  Additional question if they answer yes.');
+
+var numGuesses = 0;
+while(howFarAway !== 23 && numGuesses < 4) {
+
+  var howFarAway = parseInt(prompt('How many miles away is Mill Creek, my hometown, from downtown Seattle?'));
+
+  if (howFarAway > 23) {
+    alert(howFarAway + ' is too high!  Try again.');
+  } else if (howFarAway < 23) {
+    alert(howFarAway + ' is too low!  Try again.');
+  } else if (howFarAway === 23) {
+    alert(howFarAway + ' is correct!  Well done!');
+    correctGuesses++;
+  } else if (isNaN(howFarAway) == true) {
+    alert('In my experience miles are always counted with NUMBERS!  Try again.');
+  }
+  else {
+    alert('There should not be any other options!');
+  }
+  console.log('User guesses how far away my hometown is.  They only get 4 tries.');
+  numGuesses ++;
+}
+alert('Thanks for playing, ' + userName + '!  You got ' + correctGuesses + ' out of 6 questions right!');
