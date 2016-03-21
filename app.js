@@ -11,89 +11,106 @@ console.log('Telling user what we will be doing.');
 
 var correctGuesses = 0;
 
-var fromSeattle = prompt('Did I grow up in Seattle?  Yes or no?');
-if (fromSeattle.toUpperCase() === 'YES' || fromSeattle.toUpperCase() === 'Y') {
-  alert('That is correct!  Although technically I grew up in Mill Creek, about 20 miles North of Seattle.');
-  correctGuesses++;
-} else if (fromSeattle.toUpperCase() === 'NO' || fromSeattle.toUpperCase() === 'N') {
+function fromSeattleQ() {
+  var fromSeattle = prompt('Did I grow up in Seattle?  Yes or no?');
+  if (fromSeattle.toUpperCase() === 'YES' || fromSeattle.toUpperCase() === 'Y') {
+    alert('That is correct!  Although technically I grew up in Mill Creek,    about 20 miles North of Seattle.');
+    correctGuesses++;
+}   else if (fromSeattle.toUpperCase() === 'NO' || fromSeattle.toUpperCase() === 'N') {
   alert('Incorrect!  I grew up in Mill Creek, which is near Everett.  But I still say I grew up in Seattle!');
 } else {
   alert('Ambiguous answers receive ambiguous responses!');
 }
-console.log('User guesses if I grew up in Seattle or not.');
-
-var inLosAngeles = prompt('Did I live in Los Angeles?  Yes or no?');
-if (inLosAngeles.toUpperCase() === 'YES' || inLosAngeles.toUpperCase() === 'Y') {
-  alert ('You are right!  I lived there for 15 years.');
-  correctGuesses++;
-} else if (inLosAngeles.toUpperCase() === 'NO' || inLosAngeles.toUpperCase() === 'N') {
-  alert('Nope!  I lived in the City of Angels for 15 years.');
-} else {
-  alert('That is not the response I asked for!');
+  console.log('User guesses if I grew up in Seattle or not.');
 }
-console.log('User guesses if I lived in Los Angeles.');
+fromSeattleQ();
 
-var likesSushi = prompt('Do I like Sushi? Yes or no?');
-if (likesSushi.toUpperCase() === 'YES' || likesSushi.toUpperCase() === 'Y') {
-  alert('Incorrect!  Even though everyone else in LA loved it, I never caught the Sushi craze.');
-} else if (likesSushi.toUpperCase() === 'NO' || likesSushi.toUpperCase() === 'N') {
-  alert('That is right, ' + userName + '!  Even though I lived in the land of Sushi, I was never convinced.');
-  correctGuesses++;
-} else {
-  alert('You have to say YES or NO!  My game, my rules!');
-}
-console.log('User guesses if I like Sushi.');
-
-var playsPiano = prompt('Do I play piano?  Yes or no?');
-if (playsPiano.toUpperCase() === 'YES' || playsPiano.toUpperCase() === 'Y') {
-  alert('Right you are, ' + userName + '! I started playing piano when I was 30.');
-  correctGuesses++;
-} else if (playsPiano.toUpperCase() === 'NO' || playsPiano.toUpperCase() === 'N') {
-  alert('Incorrect!  I started playing piano when I turned 30.');
-} else {
-  alert('Playing by your own rules will not help you learn about me!');
-}
-console.log('User guesses if I play piano.');
-
-var likesGolf = prompt('Do I like Golf?  Yes or no?');
-if (likesGolf.toUpperCase () === 'YES' || likesGolf.toUpperCase() === 'Y') {
-
-  var whyGolf = prompt('Incorrect!  Do you think all people in LA play golf?  Yes or no?');
-  if (whyGolf.toUpperCase() === 'YES' || whyGolf.toUpperCase() === 'Y') {
-    alert('Well you are wrong about that!  When I was there I only knew one person who could afford it.');
-  } else if (whyGolf.toUpperCase() === 'NO' || whyGolf.toUpperCase() === 'N') {
-    alert('I see.  But you thought there was something golfy about me?  Well, now you know that is not right!');
-  } else {
-    alert('Your response baffles me!');
-  }
-
-} else if (likesGolf.toUpperCase() === 'NO' || likesGolf.toUpperCase() === 'N') {
-  alert('You are right!  I am not a golf guy.');
-  correctGuesses++;
-} else {
-  alert('At this point of the game there is no excuse for not saying YES or NO!');
-}
-console.log('User guesses if I play golf.  Additional question if they answer yes.');
-
-var numGuesses = 0;
-while(howFarAway !== 23 && numGuesses < 4) {
-
-  var howFarAway = parseInt(prompt('How many miles away is Mill Creek, my hometown, from downtown Seattle?'));
-
-  if (howFarAway > 23) {
-    alert(howFarAway + ' is too high!  Try again.');
-  } else if (howFarAway < 23) {
-    alert(howFarAway + ' is too low!  Try again.');
-  } else if (howFarAway === 23) {
-    alert(howFarAway + ' is correct!  Well done!');
+function inLosAngelesQ() {
+  var inLosAngeles = prompt('Did I live in Los Angeles?  Yes or no?');
+  if (inLosAngeles.toUpperCase() === 'YES' || inLosAngeles.toUpperCase() === 'Y') {
+    alert ('You are right!  I lived there for 15 years.');
     correctGuesses++;
-  } else if (isNaN(howFarAway) == true) {
-    alert('In my experience miles are always counted with NUMBERS!  Try again.');
+  } else if (inLosAngeles.toUpperCase() === 'NO' || inLosAngeles.toUpperCase() === 'N') {
+    alert('Nope!  I lived in the City of Angels for 15 years.');
+  } else {
+    alert('That is not the response I asked for!');
   }
-  else {
-    alert('There should not be any other options!');
+  console.log('User guesses if I lived in Los Angeles.');
+}
+inLosAngelesQ();
+
+function likesSushiQ() {
+  var likesSushi = prompt('Do I like Sushi? Yes or no?');
+  if (likesSushi.toUpperCase() === 'YES' || likesSushi.toUpperCase() === 'Y') {
+    alert('Incorrect!  Even though everyone else in LA loved it, I never caught the Sushi craze.');
+  } else if (likesSushi.toUpperCase() === 'NO' || likesSushi.toUpperCase() === 'N') {
+    alert('That is right, ' + userName + '!  Even though I lived in the land of Sushi, I was never convinced.');
+    correctGuesses++;
+  } else {
+    alert('You have to say YES or NO!  My game, my rules!');
   }
-  console.log('User guesses how far away my hometown is.  They only get 4 tries.');
-  numGuesses ++;
+  console.log('User guesses if I like Sushi.');
+}
+likesSushiQ();
+
+function playsPianoQ() {
+  var playsPiano = prompt('Do I play piano?  Yes or no?');
+  if (playsPiano.toUpperCase() === 'YES' || playsPiano.toUpperCase() === 'Y') {
+    alert('Right you are, ' + userName + '! I started playing piano when I was 30.');
+    correctGuesses++;
+  } else if (playsPiano.toUpperCase() === 'NO' || playsPiano.toUpperCase() === 'N') {
+    alert('Incorrect!  I started playing piano when I turned 30.');
+  } else {
+    alert('Playing by your own rules will not help you learn about me!');
+  }
+  console.log('User guesses if I play piano.');
+}
+playsPianoQ();
+
+function likesGolfQ() {
+  var likesGolf = prompt('Do I like Golf?  Yes or no?');
+  if (likesGolf.toUpperCase () === 'YES' || likesGolf.toUpperCase() === 'Y') {
+
+    var whyGolf = prompt('Incorrect!  Do you think all people in LA play golf?  Yes or no?');
+    if (whyGolf.toUpperCase() === 'YES' || whyGolf.toUpperCase() === 'Y') {
+      alert('Well you are wrong about that!  When I was there I only knew one person who could afford it.');
+    } else if (whyGolf.toUpperCase() === 'NO' || whyGolf.toUpperCase() === 'N') {
+      alert('I see.  But you thought there was something golfy about me?  Well, now you know that is not right!');
+    } else {
+      alert('Your response baffles me!');
+    }
+
+  } else if (likesGolf.toUpperCase() === 'NO' || likesGolf.toUpperCase() === 'N') {
+    alert('You are right!  I am not a golf guy.');
+    correctGuesses++;
+  } else {
+    alert('At this point of the game there is no excuse for not saying YES or NO!');
+  }
+  console.log('User guesses if I play golf.  Additional question if they answer yes.');
+}
+likesGolfQ();
+
+function howFarAwayQ() {
+  var numGuesses = 0;
+  while(howFarAway !== 23 && numGuesses < 4) {
+
+    var howFarAway = parseInt(prompt('How many miles away is Mill Creek, my hometown, from downtown Seattle?'));
+
+    if (howFarAway > 23) {
+      alert(howFarAway + ' is too high!  Try again.');
+    } else if (howFarAway < 23) {
+      alert(howFarAway + ' is too low!  Try again.');
+    } else if (howFarAway === 23) {
+      alert(howFarAway + ' is correct!  Well done!');
+      correctGuesses++;
+    } else if (isNaN(howFarAway) == true) {
+      alert('In my experience miles are always counted with NUMBERS!  Try again.');
+    }
+    else {
+      alert('There should not be any other options!');
+    }
+    console.log('User guesses how far away my hometown is.  They only get 4 tries.');
+    numGuesses ++;
+    }
 }
 alert('Thanks for playing, ' + userName + '!  You got ' + correctGuesses + ' out of 6 questions right!');
