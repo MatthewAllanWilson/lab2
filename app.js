@@ -10,14 +10,17 @@ alert('Okay, ' + userName + '! I\'m going to ask you some questions so you can g
 console.log('Telling user what we will be doing.');
 
 var correctGuesses = 0;
+var correctAnswerArray = [];
+var questionArray = ['Did I grow up in Seattle?  Yes or no?', 'Did I live in Los Angeles?  Yes or no?', 'Do I like Sushi? Yes or no?', 'Do I play piano?  Yes or no?', 'Do I like Golf?  Yes or no?', 'How many miles away is Mill Creek, my hometown, from downtown Seattle?'];
 
+var pTagOne = document.getElementById('ans-one');
 function fromSeattleQ() {
-  var fromSeattle = prompt('Did I grow up in Seattle?  Yes or no?');
+  var fromSeattle = prompt(questionArray[0]);
   if (fromSeattle.toUpperCase() === 'YES' || fromSeattle.toUpperCase() === 'Y') {
-    alert('That is correct!  Although technically I grew up in Mill Creek,    about 20 miles North of Seattle.');
-    correctGuesses++;
+    pTagOne.textContent = 'That is correct!  Although technically I grew up in Mill Creek,    about 20 miles North of Seattle.';
+    correctAnswerArray.push(fromSeattle);
 }   else if (fromSeattle.toUpperCase() === 'NO' || fromSeattle.toUpperCase() === 'N') {
-  alert('Incorrect!  I grew up in Mill Creek, which is near Everett.  But I still say I grew up in Seattle!');
+    pTagOne.textContent ='Incorrect!  I grew up in Mill Creek, which is near Everett.  But I still say I grew up in Seattle!';
 } else {
   alert('Ambiguous answers receive ambiguous responses!');
 }
@@ -25,13 +28,14 @@ function fromSeattleQ() {
 }
 fromSeattleQ();
 
+var pTagTwo = document.getElementById('ans-two');
 function inLosAngelesQ() {
-  var inLosAngeles = prompt('Did I live in Los Angeles?  Yes or no?');
+  var inLosAngeles = prompt(questionArray[1]);
   if (inLosAngeles.toUpperCase() === 'YES' || inLosAngeles.toUpperCase() === 'Y') {
-    alert ('You are right!  I lived there for 15 years.');
-    correctGuesses++;
+    pTagTwo.textContent = 'You are right!  I lived there for 15 years.';
+    correctAnswerArray.push(inLosAngeles);
   } else if (inLosAngeles.toUpperCase() === 'NO' || inLosAngeles.toUpperCase() === 'N') {
-    alert('Nope!  I lived in the City of Angels for 15 years.');
+    pTagTwo.textContent = 'Nope!  I lived in the City of Angels for 15 years.';
   } else {
     alert('That is not the response I asked for!');
   }
@@ -39,13 +43,14 @@ function inLosAngelesQ() {
 }
 inLosAngelesQ();
 
+var pTagThree = document.getElementById('ans-three');
 function likesSushiQ() {
-  var likesSushi = prompt('Do I like Sushi? Yes or no?');
+  var likesSushi = prompt(questionArray[2]);
   if (likesSushi.toUpperCase() === 'YES' || likesSushi.toUpperCase() === 'Y') {
-    alert('Incorrect!  Even though everyone else in LA loved it, I never caught the Sushi craze.');
+    pTagThree.textContent ='Incorrect!  Even though everyone else in LA loved it, I never caught the Sushi craze.';
   } else if (likesSushi.toUpperCase() === 'NO' || likesSushi.toUpperCase() === 'N') {
-    alert('That is right, ' + userName + '!  Even though I lived in the land of Sushi, I was never convinced.');
-    correctGuesses++;
+    pTagThree.textContent ='That is right, ' + userName + '!  Even though I lived in the land of Sushi, I was never convinced.';
+    correctAnswerArray.push(likesSushi);
   } else {
     alert('You have to say YES or NO!  My game, my rules!');
   }
@@ -53,13 +58,14 @@ function likesSushiQ() {
 }
 likesSushiQ();
 
+var pTagFour = document.getElementById('ans-four');
 function playsPianoQ() {
-  var playsPiano = prompt('Do I play piano?  Yes or no?');
+  var playsPiano = prompt(questionArray[3]);
   if (playsPiano.toUpperCase() === 'YES' || playsPiano.toUpperCase() === 'Y') {
-    alert('Right you are, ' + userName + '! I started playing piano when I was 30.');
-    correctGuesses++;
+    pTagFour.textContent ='Right you are, ' + userName + '! I started playing piano when I was 30.';
+    correctAnswerArray.push(playsPiano);
   } else if (playsPiano.toUpperCase() === 'NO' || playsPiano.toUpperCase() === 'N') {
-    alert('Incorrect!  I started playing piano when I turned 30.');
+    pTagFour.textContent ='Incorrect!  I started playing piano when I turned 30.';
   } else {
     alert('Playing by your own rules will not help you learn about me!');
   }
@@ -67,22 +73,23 @@ function playsPianoQ() {
 }
 playsPianoQ();
 
+var pTagFive = document.getElementById('ans-five')
 function likesGolfQ() {
-  var likesGolf = prompt('Do I like Golf?  Yes or no?');
+  var likesGolf = prompt(questionArray[4]);
   if (likesGolf.toUpperCase () === 'YES' || likesGolf.toUpperCase() === 'Y') {
 
     var whyGolf = prompt('Incorrect!  Do you think all people in LA play golf?  Yes or no?');
     if (whyGolf.toUpperCase() === 'YES' || whyGolf.toUpperCase() === 'Y') {
-      alert('Well you are wrong about that!  When I was there I only knew one person who could afford it.');
+      pTagFive.textContent ='Well you are wrong about that!  When I was there I only knew one person who could afford it.';
     } else if (whyGolf.toUpperCase() === 'NO' || whyGolf.toUpperCase() === 'N') {
-      alert('I see.  But you thought there was something golfy about me?  Well, now you know that is not right!');
+      pTagFive.textContent ='I see.  But you thought there was something golfy about me?  Well, now you know that is not right!';
     } else {
       alert('Your response baffles me!');
     }
 
   } else if (likesGolf.toUpperCase() === 'NO' || likesGolf.toUpperCase() === 'N') {
-    alert('You are right!  I am not a golf guy.');
-    correctGuesses++;
+    pTagFive.textContent ='You are right!  I am not a golf guy.';
+    correctAnswerArray.push(likesGolf);
   } else {
     alert('At this point of the game there is no excuse for not saying YES or NO!');
   }
@@ -94,7 +101,7 @@ function howFarAwayQ() {
   var numGuesses = 0;
   while(howFarAway !== 23 && numGuesses < 4) {
 
-    var howFarAway = parseInt(prompt('How many miles away is Mill Creek, my hometown, from downtown Seattle?'));
+    var howFarAway = parseInt(prompt(questionArray[5]));
 
     if (howFarAway > 23) {
       alert(howFarAway + ' is too high!  Try again.');
@@ -102,7 +109,7 @@ function howFarAwayQ() {
       alert(howFarAway + ' is too low!  Try again.');
     } else if (howFarAway === 23) {
       alert(howFarAway + ' is correct!  Well done!');
-      correctGuesses++;
+      correctAnswerArray.push(howFarAway);
     } else if (isNaN(howFarAway) == true) {
       alert('In my experience miles are always counted with NUMBERS!  Try again.');
     }
@@ -111,6 +118,6 @@ function howFarAwayQ() {
     }
     console.log('User guesses how far away my hometown is.  They only get 4 tries.');
     numGuesses ++;
-    }
+  }
 }
-alert('Thanks for playing, ' + userName + '!  You got ' + correctGuesses + ' out of 6 questions right!');
+alert('Thanks for playing, ' + userName + '!  You got ' + correctAnswerArray.length + ' out of 6 questions right!');
